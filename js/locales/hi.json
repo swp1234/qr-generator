@@ -1,0 +1,60 @@
+{
+  "app": {
+    "title": "क्यूआर कोड जेनरेटर",
+    "subtitle": "URL, पाठ, WiFi और संपर्क को QR कोड में परिवर्तित करें",
+    "loading": "लोड हो रहा है..."
+  },
+  "form": {
+    "type": "इनपुट प्रकार",
+    "typeUrl": "URL",
+    "typeText": "पाठ",
+    "typeWifi": "WiFi",
+    "typeContact": "संपर्क",
+    "typeEmail": "ईमेल",
+    "typePhone": "फोन",
+    "urlLabel": "URL",
+    "urlPlaceholder": "https://example.com",
+    "textLabel": "पाठ",
+    "textPlaceholder": "अपना पाठ दर्ज करें",
+    "wifiSsid": "WiFi SSID",
+    "wifiSsidPlaceholder": "नेटवर्क नाम",
+    "wifiPassword": "WiFi पासवर्ड",
+    "wifiPasswordPlaceholder": "नेटवर्क पासवर्ड",
+    "wifiSecurity": "सुरक्षा प्रकार",
+    "wifiWPA": "WPA/WPA2",
+    "wifiWEP": "WEP",
+    "wifiNoPass": "खुला",
+    "contactName": "नाम",
+    "contactNamePlaceholder": "नाम",
+    "contactPhone": "फोन",
+    "contactPhonePlaceholder": "+91-98xxxx-xxxx",
+    "contactEmail": "ईमेल",
+    "emailLabel": "ईमेल",
+    "emailPlaceholder": "example@email.com",
+    "phoneLabel": "फोन नंबर",
+    "phonePlaceholder": "+91-98xxxx-xxxx",
+    "colors": "रंग सेटिंग्स",
+    "foregroundColor": "अग्रभूमि (QR कोड)",
+    "backgroundColor": "पृष्ठभूमि",
+    "size": "आकार"
+  },
+  "button": {
+    "reset": "रीसेट करें",
+    "download": "PNG डाउनलोड करें"
+  },
+  "stats": {
+    "dataSize": "डेटा आकार",
+    "errorCorrection": "त्रुटि सुधार",
+    "version": "संस्करण"
+  },
+  "history": {
+    "title": "हाल का इतिहास",
+    "empty": "कोई इतिहास नहीं"
+  },
+  "error": {
+    "noData": "कृपया डेटा दर्ज करें"
+  },
+  "footer": {
+    "text": "DopaBrain © 2026. सभी अधिकार सुरक्षित।"
+  }
+}

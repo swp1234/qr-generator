@@ -1,0 +1,60 @@
+{
+  "app": {
+    "title": "QR Kod Oluşturucu",
+    "subtitle": "URL, metni, WiFi ve kişileri QR kodlara dönüştürün",
+    "loading": "Yükleniyor..."
+  },
+  "form": {
+    "type": "Giriş Türü",
+    "typeUrl": "URL",
+    "typeText": "Metin",
+    "typeWifi": "WiFi",
+    "typeContact": "İletişim",
+    "typeEmail": "E-posta",
+    "typePhone": "Telefon",
+    "urlLabel": "URL",
+    "urlPlaceholder": "https://example.com",
+    "textLabel": "Metin",
+    "textPlaceholder": "Metninizi girin",
+    "wifiSsid": "WiFi SSID",
+    "wifiSsidPlaceholder": "Ağ adı",
+    "wifiPassword": "WiFi Şifresi",
+    "wifiPasswordPlaceholder": "Ağ şifresi",
+    "wifiSecurity": "Güvenlik Türü",
+    "wifiWPA": "WPA/WPA2",
+    "wifiWEP": "WEP",
+    "wifiNoPass": "Açık",
+    "contactName": "Ad",
+    "contactNamePlaceholder": "Ad",
+    "contactPhone": "Telefon",
+    "contactPhonePlaceholder": "+90-5xx-xxx-xxxx",
+    "contactEmail": "E-posta",
+    "emailLabel": "E-posta",
+    "emailPlaceholder": "example@email.com",
+    "phoneLabel": "Telefon Numarası",
+    "phonePlaceholder": "+90-5xx-xxx-xxxx",
+    "colors": "Renk Ayarları",
+    "foregroundColor": "Ön Plan (QR Kodu)",
+    "backgroundColor": "Arka Plan",
+    "size": "Boyut"
+  },
+  "button": {
+    "reset": "Sıfırla",
+    "download": "PNG İndir"
+  },
+  "stats": {
+    "dataSize": "Veri Boyutu",
+    "errorCorrection": "Hata Düzeltme",
+    "version": "Sürüm"
+  },
+  "history": {
+    "title": "Son Geçmiş",
+    "empty": "Geçmiş yok"
+  },
+  "error": {
+    "noData": "Lütfen veri girin"
+  },
+  "footer": {
+    "text": "DopaBrain © 2026. Tüm hakları saklıdır."
+  }
+}

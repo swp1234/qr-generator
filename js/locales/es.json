@@ -1,0 +1,60 @@
+{
+  "app": {
+    "title": "Generador de Códigos QR",
+    "subtitle": "Convierte URL, texto, WiFi y contactos en códigos QR",
+    "loading": "Cargando..."
+  },
+  "form": {
+    "type": "Tipo de Entrada",
+    "typeUrl": "URL",
+    "typeText": "Texto",
+    "typeWifi": "WiFi",
+    "typeContact": "Contacto",
+    "typeEmail": "Correo Electrónico",
+    "typePhone": "Teléfono",
+    "urlLabel": "URL",
+    "urlPlaceholder": "https://example.com",
+    "textLabel": "Texto",
+    "textPlaceholder": "Ingrese su texto",
+    "wifiSsid": "WiFi SSID",
+    "wifiSsidPlaceholder": "Nombre de la red",
+    "wifiPassword": "Contraseña WiFi",
+    "wifiPasswordPlaceholder": "Contraseña de red",
+    "wifiSecurity": "Tipo de Seguridad",
+    "wifiWPA": "WPA/WPA2",
+    "wifiWEP": "WEP",
+    "wifiNoPass": "Abierta",
+    "contactName": "Nombre",
+    "contactNamePlaceholder": "Nombre",
+    "contactPhone": "Teléfono",
+    "contactPhonePlaceholder": "+34-6xx-xxx-xxx",
+    "contactEmail": "Correo Electrónico",
+    "emailLabel": "Correo Electrónico",
+    "emailPlaceholder": "example@email.com",
+    "phoneLabel": "Número Telefónico",
+    "phonePlaceholder": "+34-6xx-xxx-xxx",
+    "colors": "Configuración de Color",
+    "foregroundColor": "Primer Plano (Código QR)",
+    "backgroundColor": "Fondo",
+    "size": "Tamaño"
+  },
+  "button": {
+    "reset": "Reiniciar",
+    "download": "Descargar PNG"
+  },
+  "stats": {
+    "dataSize": "Tamaño de Datos",
+    "errorCorrection": "Corrección de Errores",
+    "version": "Versión"
+  },
+  "history": {
+    "title": "Historial Reciente",
+    "empty": "Sin historial"
+  },
+  "error": {
+    "noData": "Por favor ingrese datos"
+  },
+  "footer": {
+    "text": "DopaBrain © 2026. Todos los derechos reservados."
+  }
+}

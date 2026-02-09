@@ -1,0 +1,60 @@
+{
+  "app": {
+    "title": "QR 코드 생성기",
+    "subtitle": "URL, 텍스트, WiFi, 연락처를 QR 코드로 변환",
+    "loading": "로딩 중..."
+  },
+  "form": {
+    "type": "입력 타입",
+    "typeUrl": "URL",
+    "typeText": "텍스트",
+    "typeWifi": "WiFi",
+    "typeContact": "연락처",
+    "typeEmail": "이메일",
+    "typePhone": "전화",
+    "urlLabel": "URL",
+    "urlPlaceholder": "https://example.com",
+    "textLabel": "텍스트",
+    "textPlaceholder": "텍스트를 입력하세요",
+    "wifiSsid": "WiFi SSID",
+    "wifiSsidPlaceholder": "네트워크 이름",
+    "wifiPassword": "WiFi 비밀번호",
+    "wifiPasswordPlaceholder": "네트워크 비밀번호",
+    "wifiSecurity": "보안 타입",
+    "wifiWPA": "WPA/WPA2",
+    "wifiWEP": "WEP",
+    "wifiNoPass": "개방형",
+    "contactName": "이름",
+    "contactNamePlaceholder": "이름",
+    "contactPhone": "전화",
+    "contactPhonePlaceholder": "+82-10-xxxx-xxxx",
+    "contactEmail": "이메일",
+    "emailLabel": "이메일",
+    "emailPlaceholder": "example@email.com",
+    "phoneLabel": "전화번호",
+    "phonePlaceholder": "+82-10-xxxx-xxxx",
+    "colors": "색상 설정",
+    "foregroundColor": "전경색 (QR코드)",
+    "backgroundColor": "배경색",
+    "size": "사이즈"
+  },
+  "button": {
+    "reset": "초기화",
+    "download": "PNG 다운로드"
+  },
+  "stats": {
+    "dataSize": "데이터 크기",
+    "errorCorrection": "오류 정정",
+    "version": "버전"
+  },
+  "history": {
+    "title": "최근 생성 히스토리",
+    "empty": "생성 내역이 없습니다"
+  },
+  "error": {
+    "noData": "데이터를 입력해주세요"
+  },
+  "footer": {
+    "text": "DopaBrain © 2026. 모든 권리 보유."
+  }
+}

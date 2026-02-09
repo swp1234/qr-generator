@@ -1,0 +1,60 @@
+{
+  "app": {
+    "title": "QR-Code-Generator",
+    "subtitle": "Wandeln Sie URLs, Text, WiFi und Kontakte in QR-Codes um",
+    "loading": "Wird geladen..."
+  },
+  "form": {
+    "type": "Eingabetyp",
+    "typeUrl": "URL",
+    "typeText": "Text",
+    "typeWifi": "WiFi",
+    "typeContact": "Kontakt",
+    "typeEmail": "E-Mail",
+    "typePhone": "Telefon",
+    "urlLabel": "URL",
+    "urlPlaceholder": "https://example.com",
+    "textLabel": "Text",
+    "textPlaceholder": "Geben Sie Ihren Text ein",
+    "wifiSsid": "WiFi SSID",
+    "wifiSsidPlaceholder": "Netzwerkname",
+    "wifiPassword": "WiFi-Passwort",
+    "wifiPasswordPlaceholder": "Netzwerkpasswort",
+    "wifiSecurity": "Sicherheitstyp",
+    "wifiWPA": "WPA/WPA2",
+    "wifiWEP": "WEP",
+    "wifiNoPass": "Offen",
+    "contactName": "Name",
+    "contactNamePlaceholder": "Name",
+    "contactPhone": "Telefon",
+    "contactPhonePlaceholder": "+49-30-xxxxxxxx",
+    "contactEmail": "E-Mail",
+    "emailLabel": "E-Mail",
+    "emailPlaceholder": "example@email.com",
+    "phoneLabel": "Telefonnummer",
+    "phonePlaceholder": "+49-30-xxxxxxxx",
+    "colors": "Farbeinstellungen",
+    "foregroundColor": "Vordergrund (QR-Code)",
+    "backgroundColor": "Hintergrund",
+    "size": "Größe"
+  },
+  "button": {
+    "reset": "Zurücksetzen",
+    "download": "PNG herunterladen"
+  },
+  "stats": {
+    "dataSize": "Datengröße",
+    "errorCorrection": "Fehlerkorrektur",
+    "version": "Version"
+  },
+  "history": {
+    "title": "Letzte Verlauf",
+    "empty": "Kein Verlauf"
+  },
+  "error": {
+    "noData": "Bitte geben Sie Daten ein"
+  },
+  "footer": {
+    "text": "DopaBrain © 2026. Alle Rechte vorbehalten."
+  }
+}

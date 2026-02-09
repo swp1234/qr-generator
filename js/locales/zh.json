@@ -1,0 +1,60 @@
+{
+  "app": {
+    "title": "二维码生成器",
+    "subtitle": "将URL、文本、WiFi和联系人转换为二维码",
+    "loading": "加载中..."
+  },
+  "form": {
+    "type": "输入类型",
+    "typeUrl": "URL",
+    "typeText": "文本",
+    "typeWifi": "WiFi",
+    "typeContact": "联系人",
+    "typeEmail": "电子邮件",
+    "typePhone": "电话",
+    "urlLabel": "URL",
+    "urlPlaceholder": "https://example.com",
+    "textLabel": "文本",
+    "textPlaceholder": "输入您的文本",
+    "wifiSsid": "WiFi SSID",
+    "wifiSsidPlaceholder": "网络名称",
+    "wifiPassword": "WiFi密码",
+    "wifiPasswordPlaceholder": "网络密码",
+    "wifiSecurity": "安全类型",
+    "wifiWPA": "WPA/WPA2",
+    "wifiWEP": "WEP",
+    "wifiNoPass": "开放",
+    "contactName": "姓名",
+    "contactNamePlaceholder": "姓名",
+    "contactPhone": "电话",
+    "contactPhonePlaceholder": "+86-10-xxxx-xxxx",
+    "contactEmail": "电子邮件",
+    "emailLabel": "电子邮件",
+    "emailPlaceholder": "example@email.com",
+    "phoneLabel": "电话号码",
+    "phonePlaceholder": "+86-10-xxxx-xxxx",
+    "colors": "颜色设置",
+    "foregroundColor": "前景色（二维码）",
+    "backgroundColor": "背景色",
+    "size": "尺寸"
+  },
+  "button": {
+    "reset": "重置",
+    "download": "下载PNG"
+  },
+  "stats": {
+    "dataSize": "数据大小",
+    "errorCorrection": "纠错能力",
+    "version": "版本"
+  },
+  "history": {
+    "title": "生成历史",
+    "empty": "暂无历史记录"
+  },
+  "error": {
+    "noData": "请输入数据"
+  },
+  "footer": {
+    "text": "DopaBrain © 2026. 保留所有权利。"
+  }
+}

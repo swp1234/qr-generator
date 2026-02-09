@@ -1,0 +1,60 @@
+{
+  "app": {
+    "title": "QR Code Generator",
+    "subtitle": "Convert URLs, text, WiFi, and contacts to QR codes",
+    "loading": "Loading..."
+  },
+  "form": {
+    "type": "Input Type",
+    "typeUrl": "URL",
+    "typeText": "Text",
+    "typeWifi": "WiFi",
+    "typeContact": "Contact",
+    "typeEmail": "Email",
+    "typePhone": "Phone",
+    "urlLabel": "URL",
+    "urlPlaceholder": "https://example.com",
+    "textLabel": "Text",
+    "textPlaceholder": "Enter your text",
+    "wifiSsid": "WiFi SSID",
+    "wifiSsidPlaceholder": "Network name",
+    "wifiPassword": "WiFi Password",
+    "wifiPasswordPlaceholder": "Network password",
+    "wifiSecurity": "Security Type",
+    "wifiWPA": "WPA/WPA2",
+    "wifiWEP": "WEP",
+    "wifiNoPass": "Open",
+    "contactName": "Name",
+    "contactNamePlaceholder": "Name",
+    "contactPhone": "Phone",
+    "contactPhonePlaceholder": "+1-555-0000",
+    "contactEmail": "Email",
+    "emailLabel": "Email",
+    "emailPlaceholder": "example@email.com",
+    "phoneLabel": "Phone Number",
+    "phonePlaceholder": "+1-555-0000",
+    "colors": "Color Settings",
+    "foregroundColor": "Foreground (QR Code)",
+    "backgroundColor": "Background",
+    "size": "Size"
+  },
+  "button": {
+    "reset": "Reset",
+    "download": "Download PNG"
+  },
+  "stats": {
+    "dataSize": "Data Size",
+    "errorCorrection": "Error Correction",
+    "version": "Version"
+  },
+  "history": {
+    "title": "Recent History",
+    "empty": "No history yet"
+  },
+  "error": {
+    "noData": "Please enter data"
+  },
+  "footer": {
+    "text": "DopaBrain © 2026. All rights reserved."
+  }
+}

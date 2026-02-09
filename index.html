@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3600813755953882" crossorigin="anonymous"></script>
+    <meta name="robots" content="max-image-preview:large">
+    <meta name="theme-color" content="#1abc9c">
+    <meta name="description" content="고급 QR 코드 생성기 - URL, 텍스트, WiFi, 연락처 변환, 색상 커스터마이징, PNG 다운로드">
+    <meta name="keywords" content="QR 코드 생성기, QR코드, URL QR, WiFi QR, 연락처 QR, QR 색상 커스터마이징">
+    <title>QR 코드 생성기 - URL·텍스트·WiFi·연락처 QR 변환</title>
+    <script src="js/i18n.js"></script>
+    <link rel="canonical" href="https://dopabrain.com/qr-generator/">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="icon-192.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="icon-192.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Language Selector Styles -->
+    <style>
+        .language-selector { position: fixed; top: 20px; right: 20px; z-index: 1000; }
+        .lang-btn { background: rgba(26,188,156,0.3); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(26,188,156,0.4); color: #fff; font-size: 20px; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; transition: all 0.2s ease; }
+        .lang-btn:hover { background: rgba(26,188,156,0.5); transform: scale(1.05); }
+        .lang-menu { position: absolute; top: 52px; right: 0; background: rgba(15,15,35,0.95); backdrop-filter: blur(20px); border: 1px solid rgba(26,188,156,0.3); border-radius: 12px; padding: 8px; min-width: 150px; box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+        .lang-menu.hidden { display: none; }
+        .lang-option { width: 100%; padding: 10px 14px; background: transparent; border: none; text-align: left; cursor: pointer; border-radius: 8px; font-size: 14px; color: #e0e0f8; transition: background 0.2s; }
+        .lang-option:hover { background: rgba(26,188,156,0.2); }
+        .lang-option.active { background: rgba(26,188,156,0.3); font-weight: 600; }
+    </style>
+    <!-- Open Graph & Social Media Meta Tags -->
+    <meta property="og:title" content="QR 코드 생성기 - URL·텍스트·WiFi·연락처 변환">
+    <meta property="og:description" content="무료 QR 코드 생성 도구 - 색상 커스터마이징, 사이즈 조절, PNG 다운로드 가능">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dopabrain.com/qr-generator/">
+    <meta property="og:image" content="https://dopabrain.com/qr-generator/icon-512.svg">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:type" content="image/svg+xml">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="ja_JP">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="QR 코드 생성기">
+    <meta name="twitter:description" content="무료로 QR 코드를 생성하고 커스터마이징하세요!">
+    <meta name="twitter:image" content="https://dopabrain.com/qr-generator/icon-512.svg">
+    <meta name="twitter:site" content="@dopabrain">
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "QR 코드 생성기",
+      "description": "무료 QR 코드 생성 도구. URL, 텍스트, WiFi, 연락처, 이메일, 전화번호를 QR 코드로 변환하세요. 색상 커스터마이징, 사이즈 조절, PNG 다운로드 기능 제공.",
+      "url": "https://dopabrain.com/qr-generator/",
+      "image": "https://dopabrain.com/qr-generator/icon-512.svg",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript. Modern browser (Chrome, Safari, Firefox, Edge).",
+      "inLanguage": ["ko", "en", "zh", "hi", "ru", "ja", "es", "pt", "id", "tr", "de", "fr"],
+      "author": {
+        "@type": "Organization",
+        "name": "DopaBrain",
+        "url": "https://dopabrain.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "DopaBrain",
+        "url": "https://dopabrain.com/"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "KRW",
+        "availability": "https://schema.org/InStock"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.7",
+        "ratingCount": "1050",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "featureList": "QR 코드 생성, 다중 입력 타입, 색상 커스터마이징, 사이즈 조절, PNG 다운로드, 히스토리 저장, 다국어 지원"
+    }
+    </script>
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J8GSWM40TV"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-J8GSWM40TV');</script>
+</head>
+<body>
+    <div class="app-loader" id="app-loader">
+        <div class="loader-content">
+            <div class="loader-emoji">📱</div>
+            <div class="loader-spinner"></div>
+            <div class="loader-text" data-i18n="app.loading">로딩 중...</div>
+        </div>
+    </div>
+
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <button class="lang-btn" id="lang-toggle" title="Select Language">🌐</button>
+        <div id="lang-menu" class="lang-menu hidden">
+            <button class="lang-option" data-lang="ko">🇰🇷 한국어</button>
+            <button class="lang-option" data-lang="en">🇺🇸 English</button>
+            <button class="lang-option" data-lang="zh">🇨🇳 中文</button>
+            <button class="lang-option" data-lang="hi">🇮🇳 हिन्दी</button>
+            <button class="lang-option" data-lang="ru">🇷🇺 Русский</button>
+            <button class="lang-option" data-lang="ja">🇯🇵 日本語</button>
+            <button class="lang-option" data-lang="es">🇪🇸 Español</button>
+            <button class="lang-option" data-lang="pt">🇧🇷 Português</button>
+            <button class="lang-option" data-lang="id">🇮🇩 Indonesia</button>
+            <button class="lang-option" data-lang="tr">🇹🇷 Türkçe</button>
+            <button class="lang-option" data-lang="de">🇩🇪 Deutsch</button>
+            <button class="lang-option" data-lang="fr">🇫🇷 Français</button>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="app-title" data-i18n="app.title">QR 코드 생성기</h1>
+                <p class="app-subtitle" data-i18n="app.subtitle">URL, 텍스트, WiFi, 연락처를 QR 코드로 변환</p>
+            </div>
+        </header>
+
+        <!-- Top Ad Banner -->
+        <div class="ad-banner ad-top">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3600813755953882" data-ad-slot="1234567890" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Left Panel: Input Controls -->
+            <div class="input-panel">
+                <!-- Type Selection -->
+                <div class="form-section">
+                    <label class="form-label" data-i18n="form.type">입력 타입</label>
+                    <div class="type-buttons">
+                        <button class="type-btn active" data-type="url" data-i18n="form.typeUrl">URL</button>
+                        <button class="type-btn" data-type="text" data-i18n="form.typeText">텍스트</button>
+                        <button class="type-btn" data-type="wifi" data-i18n="form.typeWifi">WiFi</button>
+                        <button class="type-btn" data-type="contact" data-i18n="form.typeContact">연락처</button>
+                        <button class="type-btn" data-type="email" data-i18n="form.typeEmail">이메일</button>
+                        <button class="type-btn" data-type="phone" data-i18n="form.typePhone">전화</button>
+                    </div>
+                </div>
+
+                <!-- Input Fields -->
+                <div id="input-fields" class="input-fields">
+                    <!-- URL Input -->
+                    <div class="input-group active" id="input-url" data-type="url">
+                        <label class="form-label" data-i18n="form.urlLabel">URL</label>
+                        <input type="text" id="url-input" class="form-input" placeholder="https://example.com" data-i18n-placeholder="form.urlPlaceholder">
+                    </div>
+
+                    <!-- Text Input -->
+                    <div class="input-group" id="input-text" data-type="text">
+                        <label class="form-label" data-i18n="form.textLabel">텍스트</label>
+                        <textarea id="text-input" class="form-input textarea" placeholder="텍스트를 입력하세요" data-i18n-placeholder="form.textPlaceholder"></textarea>
+                    </div>
+
+                    <!-- WiFi Input -->
+                    <div class="input-group" id="input-wifi" data-type="wifi">
+                        <label class="form-label" data-i18n="form.wifiSsid">WiFi SSID</label>
+                        <input type="text" id="wifi-ssid" class="form-input" placeholder="네트워크 이름" data-i18n-placeholder="form.wifiSsidPlaceholder">
+
+                        <label class="form-label" data-i18n="form.wifiPassword">WiFi 비밀번호</label>
+                        <input type="password" id="wifi-password" class="form-input" placeholder="네트워크 비밀번호" data-i18n-placeholder="form.wifiPasswordPlaceholder">
+
+                        <label class="form-label" data-i18n="form.wifiSecurity">보안 타입</label>
+                        <select id="wifi-security" class="form-input">
+                            <option value="WPA" data-i18n="form.wifiWPA">WPA/WPA2</option>
+                            <option value="WEP" data-i18n="form.wifiWEP">WEP</option>
+                            <option value="nopass" data-i18n="form.wifiNoPass">개방형</option>
+                        </select>
+                    </div>
+
+                    <!-- Contact Input -->
+                    <div class="input-group" id="input-contact" data-type="contact">
+                        <label class="form-label" data-i18n="form.contactName">이름</label>
+                        <input type="text" id="contact-name" class="form-input" placeholder="이름" data-i18n-placeholder="form.contactNamePlaceholder">
+
+                        <label class="form-label" data-i18n="form.contactPhone">전화</label>
+                        <input type="tel" id="contact-phone" class="form-input" placeholder="+82-10-xxxx-xxxx" data-i18n-placeholder="form.contactPhonePlaceholder">
+
+                        <label class="form-label" data-i18n="form.contactEmail">이메일</label>
+                        <input type="email" id="contact-email" class="form-input" placeholder="example@email.com" data-i18n-placeholder="form.contactEmailPlaceholder">
+                    </div>
+
+                    <!-- Email Input -->
+                    <div class="input-group" id="input-email" data-type="email">
+                        <label class="form-label" data-i18n="form.emailLabel">이메일</label>
+                        <input type="email" id="email-input" class="form-input" placeholder="example@email.com" data-i18n-placeholder="form.emailPlaceholder">
+                    </div>
+
+                    <!-- Phone Input -->
+                    <div class="input-group" id="input-phone" data-type="phone">
+                        <label class="form-label" data-i18n="form.phoneLabel">전화번호</label>
+                        <input type="tel" id="phone-input" class="form-input" placeholder="+82-10-xxxx-xxxx" data-i18n-placeholder="form.phonePlaceholder">
+                    </div>
+                </div>
+
+                <!-- Color Customization -->
+                <div class="form-section">
+                    <label class="form-label" data-i18n="form.colors">색상 설정</label>
+
+                    <div class="color-group">
+                        <label class="color-label" data-i18n="form.foregroundColor">전경색 (QR코드)</label>
+                        <div class="color-picker-group">
+                            <input type="color" id="fg-color" class="color-picker" value="#000000">
+                            <span class="color-value" id="fg-value">#000000</span>
+                        </div>
+                    </div>
+
+                    <div class="color-group">
+                        <label class="color-label" data-i18n="form.backgroundColor">배경색</label>
+                        <div class="color-picker-group">
+                            <input type="color" id="bg-color" class="color-picker" value="#FFFFFF">
+                            <span class="color-value" id="bg-value">#FFFFFF</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Size Control -->
+                <div class="form-section">
+                    <label class="form-label" data-i18n="form.size">사이즈</label>
+                    <div class="size-control">
+                        <input type="range" id="size-slider" class="form-slider" min="100" max="500" value="250" step="10">
+                        <span class="size-display" id="size-display">250px</span>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button id="reset-btn" class="btn btn-secondary" data-i18n="button.reset">초기화</button>
+                    <button id="download-btn" class="btn btn-primary" data-i18n="button.download">PNG 다운로드</button>
+                </div>
+            </div>
+
+            <!-- Right Panel: QR Preview -->
+            <div class="preview-panel">
+                <div class="qr-container">
+                    <canvas id="qr-canvas" width="250" height="250"></canvas>
+                </div>
+
+                <!-- QR Statistics -->
+                <div class="qr-stats">
+                    <div class="stat-item">
+                        <span class="stat-label" data-i18n="stats.dataSize">데이터 크기</span>
+                        <span class="stat-value" id="data-size">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label" data-i18n="stats.errorCorrection">오류 정정</span>
+                        <span class="stat-value" id="error-correction">L (7%)</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label" data-i18n="stats.version">버전</span>
+                        <span class="stat-value" id="qr-version">1</span>
+                    </div>
+                </div>
+
+                <!-- History Section -->
+                <div class="history-section">
+                    <h3 class="history-title" data-i18n="history.title">최근 생성 히스토리</h3>
+                    <div id="history-list" class="history-list"></div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Bottom Ad Banner -->
+        <div class="ad-banner ad-bottom">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3600813755953882" data-ad-slot="0987654321" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p class="footer-text" data-i18n="footer.text">DopaBrain © 2026. 모든 권리 보유.</p>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

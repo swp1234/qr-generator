@@ -1,0 +1,60 @@
+{
+  "app": {
+    "title": "Генератор QR-кодов",
+    "subtitle": "Преобразуйте URL, текст, WiFi и контакты в QR-коды",
+    "loading": "Загрузка..."
+  },
+  "form": {
+    "type": "Тип ввода",
+    "typeUrl": "URL",
+    "typeText": "Текст",
+    "typeWifi": "WiFi",
+    "typeContact": "Контакт",
+    "typeEmail": "Email",
+    "typePhone": "Телефон",
+    "urlLabel": "URL",
+    "urlPlaceholder": "https://example.com",
+    "textLabel": "Текст",
+    "textPlaceholder": "Введите ваш текст",
+    "wifiSsid": "WiFi SSID",
+    "wifiSsidPlaceholder": "Имя сети",
+    "wifiPassword": "Пароль WiFi",
+    "wifiPasswordPlaceholder": "Пароль сети",
+    "wifiSecurity": "Тип безопасности",
+    "wifiWPA": "WPA/WPA2",
+    "wifiWEP": "WEP",
+    "wifiNoPass": "Открытая",
+    "contactName": "Имя",
+    "contactNamePlaceholder": "Имя",
+    "contactPhone": "Телефон",
+    "contactPhonePlaceholder": "+7-9xx-xxx-xx-xx",
+    "contactEmail": "Email",
+    "emailLabel": "Email",
+    "emailPlaceholder": "example@email.com",
+    "phoneLabel": "Номер телефона",
+    "phonePlaceholder": "+7-9xx-xxx-xx-xx",
+    "colors": "Настройки цвета",
+    "foregroundColor": "Передний план (QR-код)",
+    "backgroundColor": "Задний план",
+    "size": "Размер"
+  },
+  "button": {
+    "reset": "Сброс",
+    "download": "Скачать PNG"
+  },
+  "stats": {
+    "dataSize": "Размер данных",
+    "errorCorrection": "Коррекция ошибок",
+    "version": "Версия"
+  },
+  "history": {
+    "title": "Недавние коды",
+    "empty": "История пуста"
+  },
+  "error": {
+    "noData": "Пожалуйста, введите данные"
+  },
+  "footer": {
+    "text": "DopaBrain © 2026. Все права защищены."
+  }
+}

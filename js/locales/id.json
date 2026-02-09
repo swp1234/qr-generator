@@ -1,0 +1,60 @@
+{
+  "app": {
+    "title": "Pembuat Kode QR",
+    "subtitle": "Ubah URL, teks, WiFi, dan kontak menjadi kode QR",
+    "loading": "Memuat..."
+  },
+  "form": {
+    "type": "Jenis Input",
+    "typeUrl": "URL",
+    "typeText": "Teks",
+    "typeWifi": "WiFi",
+    "typeContact": "Kontak",
+    "typeEmail": "Email",
+    "typePhone": "Telepon",
+    "urlLabel": "URL",
+    "urlPlaceholder": "https://example.com",
+    "textLabel": "Teks",
+    "textPlaceholder": "Masukkan teks Anda",
+    "wifiSsid": "WiFi SSID",
+    "wifiSsidPlaceholder": "Nama jaringan",
+    "wifiPassword": "Sandi WiFi",
+    "wifiPasswordPlaceholder": "Sandi jaringan",
+    "wifiSecurity": "Jenis Keamanan",
+    "wifiWPA": "WPA/WPA2",
+    "wifiWEP": "WEP",
+    "wifiNoPass": "Terbuka",
+    "contactName": "Nama",
+    "contactNamePlaceholder": "Nama",
+    "contactPhone": "Telepon",
+    "contactPhonePlaceholder": "+62-8xx-xxxx-xxxx",
+    "contactEmail": "Email",
+    "emailLabel": "Email",
+    "emailPlaceholder": "example@email.com",
+    "phoneLabel": "Nomor Telepon",
+    "phonePlaceholder": "+62-8xx-xxxx-xxxx",
+    "colors": "Pengaturan Warna",
+    "foregroundColor": "Latar Depan (Kode QR)",
+    "backgroundColor": "Latar Belakang",
+    "size": "Ukuran"
+  },
+  "button": {
+    "reset": "Atur Ulang",
+    "download": "Unduh PNG"
+  },
+  "stats": {
+    "dataSize": "Ukuran Data",
+    "errorCorrection": "Koreksi Kesalahan",
+    "version": "Versi"
+  },
+  "history": {
+    "title": "Riwayat Terbaru",
+    "empty": "Tidak ada riwayat"
+  },
+  "error": {
+    "noData": "Silakan masukkan data"
+  },
+  "footer": {
+    "text": "DopaBrain © 2026. Hak cipta dilindungi."
+  }
+}
