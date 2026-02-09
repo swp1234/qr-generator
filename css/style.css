@@ -767,3 +767,23 @@ body {
         font-size: 0.75rem;
     }
 }
+
+/* Selection Color */
+::selection {
+    background: #1a1a3e;
+    color: white;
+}
+
+::-moz-selection {
+    background: #1a1a3e;
+    color: white;
+}
+
+/* Focus Visible */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+[role="button"]:focus-visible {
+    outline: 3px solid #1a1a3e;
+    outline-offset: 2px;
+}
