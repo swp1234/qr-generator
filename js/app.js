@@ -94,6 +94,9 @@ class QRCodeGenerator {
         if (window.i18n) {
             window.i18n.initI18n().then(() => {
                 this.hideLoader();
+            }).catch((e) => {
+                console.warn('i18n init failed:', e);
+                this.hideLoader();
             });
         } else {
             this.hideLoader();
