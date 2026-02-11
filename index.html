@@ -9,7 +9,6 @@
     <meta name="description" content="고급 QR 코드 생성기 - URL, 텍스트, WiFi, 연락처 변환, 색상 커스터마이징, PNG 다운로드">
     <meta name="keywords" content="QR 코드 생성기, QR코드, URL QR, WiFi QR, 연락처 QR, QR 색상 커스터마이징">
     <title>QR 코드 생성기 - URL·텍스트·WiFi·연락처 QR 변환</title>
-    <script src="js/i18n.js"></script>
     <link rel="canonical" href="https://dopabrain.com/qr-generator/">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="icon-192.svg" type="image/svg+xml">
@@ -109,6 +108,9 @@
             <div class="loader-text" data-i18n="app.loading">로딩 중...</div>
         </div>
     </div>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">☀️</button>
 
     <!-- Language Selector -->
     <div class="language-selector">
@@ -296,6 +298,7 @@
         </footer>
     </div>
 
+    <script src="js/i18n.js"></script>
     <script src="js/app.js"></script>
 
     <!-- Service Worker Registration -->
