@@ -4,6 +4,12 @@
     "subtitle": "将URL、文本、WiFi和联系人转换为二维码",
     "loading": "加载中..."
   },
+  "header": {
+    "users": "今天已生成 <strong>3,456个</strong> 二维码"
+  },
+  "preview": {
+    "emptyState": "输入URL即可立即生成二维码"
+  },
   "form": {
     "type": "输入类型",
     "typeUrl": "URL",

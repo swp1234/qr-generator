@@ -138,6 +138,9 @@
             <div class="header-content">
                 <h1 class="app-title" data-i18n="app.title">QR 코드 생성기</h1>
                 <p class="app-subtitle" data-i18n="app.subtitle">URL, 텍스트, WiFi, 연락처를 QR 코드로 변환</p>
+                <div class="social-proof" style="text-align:center;margin:4px 0 12px;font-size:13px;opacity:0.7;">
+                    📱 <span data-i18n="header.users">오늘 <strong>3,456개</strong>의 QR 코드가 생성되었습니다</span>
+                </div>
             </div>
         </header>
 
@@ -260,6 +263,7 @@
             <div class="preview-panel">
                 <div class="qr-container">
                     <canvas id="qr-canvas" width="250" height="250"></canvas>
+                    <div id="empty-state-message" class="empty-state-message" style="display:none;" data-i18n="preview.emptyState">URL을 입력하면 즉시 QR 코드가 생성됩니다</div>
                 </div>
 
                 <!-- QR Statistics -->

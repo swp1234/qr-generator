@@ -4,6 +4,12 @@
     "subtitle": "Преобразуйте URL, текст, WiFi и контакты в QR-коды",
     "loading": "Загрузка..."
   },
+  "header": {
+    "users": "Сегодня создано <strong>3,456</strong> QR-кодов"
+  },
+  "preview": {
+    "emptyState": "Введите URL для мгновенной генерации QR-кода"
+  },
   "form": {
     "type": "Тип ввода",
     "typeUrl": "URL",

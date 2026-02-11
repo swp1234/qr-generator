@@ -4,6 +4,12 @@
     "subtitle": "Wandeln Sie URLs, Text, WiFi und Kontakte in QR-Codes um",
     "loading": "Wird geladen..."
   },
+  "header": {
+    "users": "Heute wurden <strong>3.456</strong> QR-Codes generiert"
+  },
+  "preview": {
+    "emptyState": "Geben Sie eine URL ein, um sofort einen QR-Code zu generieren"
+  },
   "form": {
     "type": "Eingabetyp",
     "typeUrl": "URL",

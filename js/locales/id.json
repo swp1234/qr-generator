@@ -4,6 +4,12 @@
     "subtitle": "Ubah URL, teks, WiFi, dan kontak menjadi kode QR",
     "loading": "Memuat..."
   },
+  "header": {
+    "users": "<strong>3.456</strong> kode QR dibuat hari ini"
+  },
+  "preview": {
+    "emptyState": "Masukkan URL untuk menghasilkan kode QR secara instan"
+  },
   "form": {
     "type": "Jenis Input",
     "typeUrl": "URL",

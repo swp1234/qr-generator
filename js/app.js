@@ -8,10 +8,14 @@ class QRCodeGenerator {
         this.size = 250;
         this.history = [];
         this.maxHistorySize = 5;
+        this.isExampleQR = false; // 예시 QR 코드 플래그
 
         this.initElements();
         this.initEventListeners();
         this.loadHistory();
+        // 예시 QR 코드 자동 생성
+        this.urlInput.value = 'https://dopabrain.com';
+        this.isExampleQR = true;
         this.generateQR();
     }
 
@@ -68,7 +72,13 @@ class QRCodeGenerator {
         });
 
         // Input change listeners
-        this.urlInput.addEventListener('input', () => this.generateQR());
+        this.urlInput.addEventListener('input', () => {
+            // 사용자가 입력하면 예시 플래그 해제
+            if (this.isExampleQR && this.urlInput.value.trim() !== 'https://dopabrain.com') {
+                this.isExampleQR = false;
+            }
+            this.generateQR();
+        });
         this.textInput.addEventListener('input', () => this.generateQR());
         this.wifiSsid.addEventListener('input', () => this.generateQR());
         this.wifiPassword.addEventListener('input', () => this.generateQR());
@@ -94,12 +104,35 @@ class QRCodeGenerator {
         if (window.i18n) {
             window.i18n.initI18n().then(() => {
                 this.hideLoader();
+                // 빈 상태 메시지 텍스트 업데이트 (표시 중인 경우)
+                const emptyState = document.getElementById('empty-state-message');
+                if (emptyState && emptyState.style.display !== 'none') {
+                    emptyState.textContent = window.i18n.t('preview.emptyState');
+                }
+                // URL 입력 필드 자동 포커스
+                setTimeout(() => {
+                    if (this.urlInput) {
+                        this.urlInput.focus();
+                    }
+                }, 300);
             }).catch((e) => {
                 console.warn('i18n init failed:', e);
                 this.hideLoader();
+                // URL 입력 필드 자동 포커스
+                setTimeout(() => {
+                    if (this.urlInput) {
+                        this.urlInput.focus();
+                    }
+                }, 300);
             });
         } else {
             this.hideLoader();
+            // URL 입력 필드 자동 포커스
+            setTimeout(() => {
+                if (this.urlInput) {
+                    this.urlInput.focus();
+                }
+            }, 300);
         }
     }
 
@@ -128,7 +161,12 @@ class QRCodeGenerator {
     getInputData() {
         switch (this.currentType) {
             case 'url':
-                return this.urlInput.value.trim();
+                const urlValue = this.urlInput.value.trim();
+                // 입력이 없고 예시 QR 코드가 활성화되어 있으면 예시 URL 반환
+                if (!urlValue && this.isExampleQR) {
+                    return 'https://dopabrain.com';
+                }
+                return urlValue;
             case 'text':
                 return this.textInput.value.trim();
             case 'wifi':
@@ -170,8 +208,13 @@ class QRCodeGenerator {
         if (!data) {
             this.clearCanvas();
             this.updateStats(0, 1, 'L');
+            // 빈 상태 안내 표시
+            this.showEmptyState();
             return;
         }
+
+        // 빈 상태 안내 숨기기
+        this.hideEmptyState();
 
         try {
             const qrCode = this.createQRCode(data);
@@ -486,7 +529,28 @@ class QRCodeGenerator {
         this.sizeDisplay.textContent = '250px';
 
         this.selectType('url');
+        // 초기화 후 예시 QR 코드 다시 생성
+        this.urlInput.value = 'https://dopabrain.com';
+        this.isExampleQR = true;
         this.generateQR();
+    }
+
+    showEmptyState() {
+        const emptyState = document.getElementById('empty-state-message');
+        if (emptyState) {
+            emptyState.style.display = 'block';
+            // i18n이 있으면 번역 업데이트
+            if (window.i18n && window.i18n.t) {
+                emptyState.textContent = window.i18n.t('preview.emptyState');
+            }
+        }
+    }
+
+    hideEmptyState() {
+        const emptyState = document.getElementById('empty-state-message');
+        if (emptyState) {
+            emptyState.style.display = 'none';
+        }
     }
 
     hideLoader() {
@@ -495,6 +559,21 @@ class QRCodeGenerator {
             loader.classList.add('hidden');
         }
     }
+}
+
+// Theme Toggle
+const themeToggle = document.getElementById('theme-toggle');
+if (themeToggle) {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    themeToggle.textContent = savedTheme === 'light' ? '🌙' : '☀️';
+    themeToggle.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme');
+        const next = current === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        themeToggle.textContent = next === 'light' ? '🌙' : '☀️';
+    });
 }
 
 // Initialize app when DOM is ready

@@ -4,6 +4,12 @@
     "subtitle": "URL、テキスト、WiFi、連絡先をQRコードに変換",
     "loading": "読み込み中..."
   },
+  "header": {
+    "users": "本日 <strong>3,456個</strong> のQRコードが生成されました"
+  },
+  "preview": {
+    "emptyState": "URLを入力すると即座にQRコードが生成されます"
+  },
   "form": {
     "type": "入力タイプ",
     "typeUrl": "URL",

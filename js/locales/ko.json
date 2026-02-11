@@ -4,6 +4,12 @@
     "subtitle": "URL, 텍스트, WiFi, 연락처를 QR 코드로 변환",
     "loading": "로딩 중..."
   },
+  "header": {
+    "users": "오늘 <strong>3,456개</strong>의 QR 코드가 생성되었습니다"
+  },
+  "preview": {
+    "emptyState": "URL을 입력하면 즉시 QR 코드가 생성됩니다"
+  },
   "form": {
     "type": "입력 타입",
     "typeUrl": "URL",

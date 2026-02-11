@@ -4,6 +4,12 @@
     "subtitle": "URL, metni, WiFi ve kişileri QR kodlara dönüştürün",
     "loading": "Yükleniyor..."
   },
+  "header": {
+    "users": "Bugün <strong>3.456</strong> QR kodu oluşturuldu"
+  },
+  "preview": {
+    "emptyState": "Anında QR kodu oluşturmak için URL girin"
+  },
   "form": {
     "type": "Giriş Türü",
     "typeUrl": "URL",

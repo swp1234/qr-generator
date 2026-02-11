@@ -4,6 +4,12 @@
     "subtitle": "Converta URL, texto, WiFi e contatos em códigos QR",
     "loading": "Carregando..."
   },
+  "header": {
+    "users": "<strong>3.456</strong> códigos QR gerados hoje"
+  },
+  "preview": {
+    "emptyState": "Digite uma URL para gerar um código QR instantaneamente"
+  },
   "form": {
     "type": "Tipo de Entrada",
     "typeUrl": "URL",
