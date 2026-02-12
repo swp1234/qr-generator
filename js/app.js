@@ -217,6 +217,7 @@ class QRCodeGenerator {
         this.hideEmptyState();
 
         try {
+            if(!this.isExampleQR && typeof gtag!=='undefined') gtag('event','generate_qr');
             const qrCode = this.createQRCode(data);
             this.drawQRCode(qrCode, data);
             this.addToHistory(data);
@@ -494,6 +495,7 @@ class QRCodeGenerator {
     }
 
     downloadQR() {
+        if(typeof gtag!=='undefined') gtag('event','download_qr');
         const data = this.getInputData();
         if (!data) {
             alert(window.i18n ? window.i18n.t('error.noData') : '데이터를 입력해주세요');
