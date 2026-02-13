@@ -9,6 +9,7 @@ class QRCodeGenerator {
         this.history = [];
         this.maxHistorySize = 5;
         this.isExampleQR = false; // 예시 QR 코드 플래그
+        this._engagementFired = false; // GA4 engagement tracking
 
         this.initElements();
         this.initEventListeners();
@@ -73,6 +74,7 @@ class QRCodeGenerator {
 
         // Input change listeners
         this.urlInput.addEventListener('input', () => {
+            this._fireEngagement();
             // 사용자가 입력하면 예시 플래그 해제
             if (this.isExampleQR && this.urlInput.value.trim() !== 'https://dopabrain.com') {
                 this.isExampleQR = false;
@@ -136,7 +138,19 @@ class QRCodeGenerator {
         }
     }
 
+    /**
+     * Fire GA4 engagement event on first interaction to reduce bounce rate
+     */
+    _fireEngagement() {
+        if (this._engagementFired) return;
+        this._engagementFired = true;
+        if (typeof gtag === 'function') {
+            gtag('event', 'engagement', { event_category: 'qr_generator', event_label: 'first_interaction' });
+        }
+    }
+
     selectType(type) {
+        this._fireEngagement();
         this.currentType = type;
 
         // Update button states
