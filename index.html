@@ -319,6 +319,17 @@
         }
     </script>
     <div id="share-float" style="position:fixed;bottom:80px;right:16px;z-index:99"><button onclick="(async()=>{const u=location.href,t=document.title;if(typeof gtag==='function')gtag('event','share',{method:navigator.share?'native':'clipboard',app_name:'qr-generator'});if(navigator.share){try{await navigator.share({title:t,url:u})}catch(e){}}else{await navigator.clipboard.writeText(u);this.textContent='✅';setTimeout(()=>this.textContent='📤',1500)}})()" style="width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#fff;font-size:20px;cursor:pointer;backdrop-filter:blur(8px)">📤</button></div>
+
+    <!-- Related Articles & Portal Link -->
+    <nav style="max-width:480px;margin:24px auto 0;padding:0 16px" aria-label="Related articles">
+      <p style="font-size:13px;font-weight:600;margin-bottom:8px;opacity:0.6;text-align:center">📖 Related Articles</p>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <a href="/portal/blog/en/qr-generator-guide.html" style="display:block;padding:10px 14px;background:rgba(128,128,128,0.1);border-radius:8px;text-decoration:none;color:inherit;font-size:13px;opacity:0.7">QR Code Generator Guide - Create Custom QR Codes Free</a>
+        <a href="/portal/blog/en/free-games.html" style="display:block;padding:10px 14px;background:rgba(128,128,128,0.1);border-radius:8px;text-decoration:none;color:inherit;font-size:13px;opacity:0.7">Best Free Browser Tools & Games 2026</a>
+      </div>
+      <p style="text-align:center;margin-top:16px"><a href="https://dopabrain.com/portal/" style="opacity:0.5;font-size:13px;text-decoration:none;color:inherit">← DopaBrain Home</a></p>
+    </nav>
+
     <script src="/portal/js/cross-promo.js" defer></script>
 </body>
 </html>
