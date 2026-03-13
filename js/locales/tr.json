@@ -69,5 +69,24 @@
     "unitConverter": "Birim Dönüştürücü",
     "colorPalette": "Renk Paleti",
     "typingSpeed": "Yazma Hızı"
+  },
+  "about": {
+    "title": "QR Kod Oluşturucu Hakkında",
+    "desc": "DopaBrain QR Kod Oluşturucu, URL’ler, metin, WiFi kimlik bilgileri, kişiler, e-posta ve telefon numaraları için anında özel QR kodları oluşturmanızı sağlar. Renkleri ve boyutları özelleştirin, ardından yüksek kaliteli PNG olarak indirin. Kayıt gerektirmez, tamamen ücretsiz.",
+    "howTitle": "QR Kod Nasıl Oluşturulur",
+    "howDesc": "Giriş türünü seçin (URL, metin, WiFi vb.), verileri girin, isteğe bağlı olarak renkleri ve boyutu özelleştirin; QR kodunuz gerçek zamanlı olarak oluşturulur. PNG görüntüsüne kaydetmek için İndir’e tıklayın."
+  },
+  "faq": {
+    "title": "Sıkça Sorulan Sorular",
+    "q1": "Bu QR kod oluşturucu ücretsiz mi?",
+    "a1": "Evet, tamamen ücretsizdir. Kayıt veya ödeme yapmadan sınırsız QR kod oluşturabilirsiniz.",
+    "q2": "Hangi tür QR kodlar oluşturabilirim?",
+    "a2": "URL’ler, düz metin, WiFi ağ kimlik bilgileri, kişi kartları (vCard), e-posta adresleri ve telefon numaraları için QR kodlar oluşturabilirsiniz.",
+    "q3": "QR kodumun renklerini özelleştirebilir miyim?",
+    "a3": "Evet, yerleşik renk seçiciyi kullanarak hem ön plan (QR deseni) hem de arka plan rengini özelleştirebilirsiniz.",
+    "q4": "QR kodu nasıl indirebilirim?",
+    "a4": "'PNG İndir' düğmesine tıklayarak QR kodunuzu yüksek kaliteli PNG görüntü dosyası olarak cihazınıza kaydedin.",
+    "q5": "Oluşturulan QR kodların süresi doluyor mu?",
+    "a5": "Hayır, burada oluşturulan QR kodların süresi asla dolmaz. Verileri doğrudan kodlarlar ve kalıcı olarak çalışırlar."
   }
 }

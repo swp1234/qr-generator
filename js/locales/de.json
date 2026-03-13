@@ -69,5 +69,24 @@
     "unitConverter": "Einheitenrechner",
     "colorPalette": "Farbpalette",
     "typingSpeed": "Tippgeschwindigkeit"
+  },
+  "about": {
+    "title": "Über den QR-Code-Generator",
+    "desc": "Der DopaBrain QR-Code-Generator ermöglicht es Ihnen, sofort benutzerdefinierte QR-Codes für URLs, Text, WiFi-Zugangsdaten, Kontakte, E-Mail und Telefonnummern zu erstellen. Passen Sie Farben und Größen an und laden Sie sie als hochwertige PNG herunter. Keine Anmeldung erforderlich, völlig kostenlos.",
+    "howTitle": "So erstellen Sie einen QR-Code",
+    "howDesc": "Wählen Sie den Eingabetyp (URL, Text, WiFi usw.), geben Sie die Daten ein, passen Sie optional Farben und Größe an, und Ihr QR-Code wird in Echtzeit generiert. Klicken Sie auf Herunterladen, um ihn als PNG-Bild zu speichern."
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "q1": "Ist dieser QR-Code-Generator kostenlos?",
+    "a1": "Ja, er ist völlig kostenlos. Sie können unbegrenzt QR-Codes ohne Registrierung oder Bezahlung generieren.",
+    "q2": "Welche Arten von QR-Codes kann ich erstellen?",
+    "a2": "Sie können QR-Codes für URLs, Klartext, WiFi-Netzwerkzugangsdaten, Kontaktkarten (vCard), E-Mail-Adressen und Telefonnummern erstellen.",
+    "q3": "Kann ich die Farben meines QR-Codes anpassen?",
+    "a3": "Ja, Sie können sowohl die Vordergrundfarbe (QR-Muster) als auch die Hintergrundfarbe mit dem integrierten Farbwähler anpassen.",
+    "q4": "Wie lade ich den QR-Code herunter?",
+    "a4": "Klicken Sie auf die Schaltfläche 'PNG herunterladen', um Ihren QR-Code als hochwertige PNG-Bilddatei zu speichern.",
+    "q5": "Laufen generierte QR-Codes ab?",
+    "a5": "Nein, hier generierte QR-Codes laufen nie ab. Sie kodieren Daten direkt und funktionieren dauerhaft."
   }
 }

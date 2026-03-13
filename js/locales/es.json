@@ -69,5 +69,24 @@
     "unitConverter": "Conversor de unidades",
     "colorPalette": "Paleta de colores",
     "typingSpeed": "Velocidad de escritura"
+  },
+  "about": {
+    "title": "Acerca del Generador de Códigos QR",
+    "desc": "El Generador de Códigos QR de DopaBrain te permite crear códigos QR personalizados al instante para URLs, texto, credenciales WiFi, contactos, correo electrónico y números de teléfono. Personaliza colores y tamaños, luego descarga como PNG de alta calidad. Sin registro, completamente gratis.",
+    "howTitle": "Cómo crear un código QR",
+    "howDesc": "Selecciona el tipo de entrada (URL, texto, WiFi, etc.), ingresa los datos, opcionalmente personaliza colores y tamaño, y tu código QR se genera en tiempo real. Haz clic en Descargar para guardarlo como imagen PNG."
+  },
+  "faq": {
+    "title": "Preguntas frecuentes",
+    "q1": "¿Es gratis este generador de códigos QR?",
+    "a1": "Sí, es completamente gratis. Puedes generar códigos QR ilimitados sin registro ni pago.",
+    "q2": "¿Qué tipos de códigos QR puedo crear?",
+    "a2": "Puedes crear códigos QR para URLs, texto plano, credenciales de red WiFi, tarjetas de contacto (vCard), direcciones de correo electrónico y números de teléfono.",
+    "q3": "¿Puedo personalizar los colores de mi código QR?",
+    "a3": "Sí, puedes personalizar tanto el color de primer plano (patrón QR) como el color de fondo usando el selector de color integrado.",
+    "q4": "¿Cómo descargo el código QR?",
+    "a4": "Haz clic en el botón 'Descargar PNG' para guardar tu código QR como archivo de imagen PNG de alta calidad.",
+    "q5": "¿Los códigos QR generados expiran?",
+    "a5": "No, los códigos QR generados aquí nunca expiran. Codifican datos directamente, por lo que funcionan permanentemente."
   }
 }

@@ -69,5 +69,24 @@
     "unitConverter": "Konversi Satuan",
     "colorPalette": "Palet Warna",
     "typingSpeed": "Kecepatan Mengetik"
+  },
+  "about": {
+    "title": "Tentang Generator Kode QR",
+    "desc": "Generator Kode QR DopaBrain memungkinkan Anda membuat kode QR kustom secara instan untuk URL, teks, kredensial WiFi, kontak, email, dan nomor telepon. Sesuaikan warna dan ukuran, lalu unduh sebagai PNG berkualitas tinggi. Tanpa pendaftaran, sepenuhnya gratis.",
+    "howTitle": "Cara Membuat Kode QR",
+    "howDesc": "Pilih jenis input (URL, teks, WiFi, dll.), masukkan data, opsional sesuaikan warna dan ukuran, dan kode QR Anda dibuat secara real-time. Klik Unduh untuk menyimpannya sebagai gambar PNG."
+  },
+  "faq": {
+    "title": "Pertanyaan yang Sering Diajukan",
+    "q1": "Apakah generator kode QR ini gratis?",
+    "a1": "Ya, sepenuhnya gratis. Anda dapat membuat kode QR tanpa batas tanpa registrasi atau pembayaran.",
+    "q2": "Jenis kode QR apa yang bisa saya buat?",
+    "a2": "Anda dapat membuat kode QR untuk URL, teks biasa, kredensial jaringan WiFi, kartu kontak (vCard), alamat email, dan nomor telepon.",
+    "q3": "Bisakah saya menyesuaikan warna kode QR?",
+    "a3": "Ya, Anda dapat menyesuaikan warna latar depan (pola QR) dan warna latar belakang menggunakan pemilih warna bawaan.",
+    "q4": "Bagaimana cara mengunduh kode QR?",
+    "a4": "Klik tombol 'Unduh PNG' untuk menyimpan kode QR sebagai file gambar PNG berkualitas tinggi.",
+    "q5": "Apakah kode QR yang dihasilkan kedaluwarsa?",
+    "a5": "Tidak, kode QR yang dihasilkan di sini tidak pernah kedaluwarsa. Mereka mengkodekan data secara langsung dan bekerja secara permanen."
   }
 }

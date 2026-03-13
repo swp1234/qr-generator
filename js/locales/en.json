@@ -69,5 +69,24 @@
     "unitConverter": "Unit Converter",
     "colorPalette": "Color Palette",
     "typingSpeed": "Typing Speed"
+  },
+  "about": {
+    "title": "About QR Code Generator",
+    "desc": "DopaBrain QR Code Generator lets you create custom QR codes instantly for URLs, text, WiFi credentials, contacts, email, and phone numbers. Customize colors and sizes, then download as high-quality PNG. No sign-up required, completely free, and works on any device.",
+    "howTitle": "How to Create a QR Code",
+    "howDesc": "Select your input type (URL, text, WiFi, etc.), enter the data, optionally customize colors and size, and your QR code is generated in real time. Click Download to save it as a PNG image."
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "q1": "Is this QR code generator free?",
+    "a1": "Yes, it is completely free. You can generate unlimited QR codes for URLs, text, WiFi, contacts, email, and phone numbers without any registration or payment.",
+    "q2": "What types of QR codes can I create?",
+    "a2": "You can create QR codes for URLs, plain text, WiFi network credentials, contact cards (vCard), email addresses, and phone numbers.",
+    "q3": "Can I customize the colors of my QR code?",
+    "a3": "Yes, you can customize both the foreground (QR pattern) color and the background color using the built-in color picker.",
+    "q4": "How do I download the QR code?",
+    "a4": "Click the 'Download PNG' button to save your QR code as a high-quality PNG image file to your device.",
+    "q5": "Do generated QR codes expire?",
+    "a5": "No, QR codes generated here never expire. They encode data directly, so they work permanently as long as the linked content remains available."
   }
 }
