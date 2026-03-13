@@ -62,5 +62,12 @@
   },
   "footer": {
     "text": "DopaBrain © 2026. सभी अधिकार सुरक्षित।"
+  },
+  "related": {
+    "title": "और खोजें",
+    "passwordGenerator": "पासवर्ड जनरेटर",
+    "unitConverter": "यूनिट कनवर्टर",
+    "colorPalette": "रंग पैलेट",
+    "typingSpeed": "टाइपिंग स्पीड"
   }
 }

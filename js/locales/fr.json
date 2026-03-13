@@ -62,5 +62,12 @@
   },
   "footer": {
     "text": "DopaBrain © 2026. Tous droits réservés."
+  },
+  "related": {
+    "title": "À découvrir",
+    "passwordGenerator": "Générateur de mots de passe",
+    "unitConverter": "Convertisseur d'unités",
+    "colorPalette": "Palette de couleurs",
+    "typingSpeed": "Vitesse de frappe"
   }
 }

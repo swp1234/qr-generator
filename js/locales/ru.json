@@ -62,5 +62,12 @@
   },
   "footer": {
     "text": "DopaBrain © 2026. Все права защищены."
+  },
+  "related": {
+    "title": "Ещё интересное",
+    "passwordGenerator": "Генератор паролей",
+    "unitConverter": "Конвертер единиц",
+    "colorPalette": "Цветовая палитра",
+    "typingSpeed": "Скорость набора"
   }
 }

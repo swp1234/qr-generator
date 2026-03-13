@@ -62,5 +62,12 @@
   },
   "footer": {
     "text": "DopaBrain © 2026. 保留所有权利。"
+  },
+  "related": {
+    "title": "探索更多",
+    "passwordGenerator": "密码生成器",
+    "unitConverter": "单位转换",
+    "colorPalette": "调色板",
+    "typingSpeed": "打字速度"
   }
 }

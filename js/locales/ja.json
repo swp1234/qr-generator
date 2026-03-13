@@ -62,5 +62,12 @@
   },
   "footer": {
     "text": "DopaBrain © 2026. すべての権利予約。"
+  },
+  "related": {
+    "title": "もっと楽しむ",
+    "passwordGenerator": "パスワード生成",
+    "unitConverter": "単位変換",
+    "colorPalette": "カラーパレット",
+    "typingSpeed": "タイピング速度"
   }
 }

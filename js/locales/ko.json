@@ -62,5 +62,12 @@
   },
   "footer": {
     "text": "DopaBrain © 2026. 모든 권리 보유."
+  },
+  "related": {
+    "title": "더 많은 콘텐츠",
+    "passwordGenerator": "비밀번호 생성기",
+    "unitConverter": "단위 변환기",
+    "colorPalette": "컬러 팔레트",
+    "typingSpeed": "타이핑 속도"
   }
 }

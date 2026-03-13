@@ -62,5 +62,12 @@
   },
   "footer": {
     "text": "DopaBrain © 2026. Hak cipta dilindungi."
+  },
+  "related": {
+    "title": "Jelajahi lainnya",
+    "passwordGenerator": "Pembuat Kata Sandi",
+    "unitConverter": "Konversi Satuan",
+    "colorPalette": "Palet Warna",
+    "typingSpeed": "Kecepatan Mengetik"
   }
 }

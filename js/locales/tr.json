@@ -62,5 +62,12 @@
   },
   "footer": {
     "text": "DopaBrain © 2026. Tüm hakları saklıdır."
+  },
+  "related": {
+    "title": "Daha fazla keşfet",
+    "passwordGenerator": "Şifre Oluşturucu",
+    "unitConverter": "Birim Dönüştürücü",
+    "colorPalette": "Renk Paleti",
+    "typingSpeed": "Yazma Hızı"
   }
 }
