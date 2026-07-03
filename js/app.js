@@ -8,13 +8,16 @@ class QRCodeGenerator {
         this.size = 250;
         this.history = [];
         this.maxHistorySize = 5;
-        this.isExampleQR = false; // 예시 QR 코드 플래그
-        this._engagementFired = false; // GA4 engagement tracking
+        this.isExampleQR = false;
+        this._engagementFired = false;
+        this.generationSeq = 0;
+        this.generateTrackTimer = null;
+        this.lastTrackedGenerateKey = '';
 
         this.initElements();
         this.initEventListeners();
         this.loadHistory();
-        // 예시 QR 코드 자동 생성
+        // Generate starter QR code.
         this.urlInput.value = 'https://dopabrain.com';
         this.isExampleQR = true;
         this.generateQR();
@@ -75,7 +78,7 @@ class QRCodeGenerator {
         // Input change listeners
         this.urlInput.addEventListener('input', () => {
             this._fireEngagement();
-            // 사용자가 입력하면 예시 플래그 해제
+            // Clear the starter example flag when the user types.
             if (this.isExampleQR && this.urlInput.value.trim() !== 'https://dopabrain.com') {
                 this.isExampleQR = false;
             }
@@ -106,12 +109,12 @@ class QRCodeGenerator {
         if (window.i18n) {
             window.i18n.initI18n().then(() => {
                 this.hideLoader();
-                // 빈 상태 메시지 텍스트 업데이트 (표시 중인 경우)
+                // Refresh empty-state copy after translations load.
                 const emptyState = document.getElementById('empty-state-message');
                 if (emptyState && emptyState.style.display !== 'none') {
                     emptyState.textContent = window.i18n.t('preview.emptyState');
                 }
-                // URL 입력 필드 자동 포커스
+                // Focus the URL input after initialization.
                 setTimeout(() => {
                     if (this.urlInput) {
                         this.urlInput.focus();
@@ -120,8 +123,8 @@ class QRCodeGenerator {
             }).catch((e) => {
                 console.warn('i18n init failed:', e);
                 this.hideLoader();
-                // URL 입력 필드 자동 포커스
                 setTimeout(() => {
+                    // Focus the URL input after fallback initialization.
                     if (this.urlInput) {
                         this.urlInput.focus();
                     }
@@ -129,8 +132,8 @@ class QRCodeGenerator {
             });
         } else {
             this.hideLoader();
-            // URL 입력 필드 자동 포커스
             setTimeout(() => {
+                // Focus the URL input after initialization.
                 if (this.urlInput) {
                     this.urlInput.focus();
                 }
@@ -144,9 +147,33 @@ class QRCodeGenerator {
     _fireEngagement() {
         if (this._engagementFired) return;
         this._engagementFired = true;
-        if (typeof gtag === 'function') {
-            gtag('event', 'engagement', { event_category: 'qr_generator', event_label: 'first_interaction' });
-        }
+        this.trackEvent('engagement', { event_label: 'first_interaction' });
+    }
+
+    trackEvent(name, params) {
+        if (typeof gtag !== 'function') return;
+        gtag('event', name, Object.assign({
+            event_category: 'qr_generator',
+            tool_id: 'qr-generator',
+            page_path: '/qr-generator/',
+            page_location: window.location.href,
+            transport_type: 'beacon'
+        }, params || {}));
+    }
+
+    scheduleGenerateEvent(data) {
+        const key = `${this.currentType}:${data}:${this.size}:${this.fgColor}:${this.bgColor}`;
+        window.clearTimeout(this.generateTrackTimer);
+        this.generateTrackTimer = window.setTimeout(() => {
+            if (key === this.lastTrackedGenerateKey) return;
+            this.lastTrackedGenerateKey = key;
+            this.trackEvent('generate_qr', {
+                input_type: this.currentType,
+                data_size: data.length,
+                qr_size: this.size,
+                error_correction: 'M'
+            });
+        }, 800);
     }
 
     selectType(type) {
@@ -176,7 +203,7 @@ class QRCodeGenerator {
         switch (this.currentType) {
             case 'url':
                 const urlValue = this.urlInput.value.trim();
-                // 입력이 없고 예시 QR 코드가 활성화되어 있으면 예시 URL 반환
+                // Return the starter URL while the example QR is active.
                 if (!urlValue && this.isExampleQR) {
                     return 'https://dopabrain.com';
                 }
@@ -218,162 +245,90 @@ class QRCodeGenerator {
 
     generateQR() {
         const data = this.getInputData();
+        const isExample = this.currentType === 'url' && this.isExampleQR && data === 'https://dopabrain.com';
+
+        if (!isExample) {
+            this.isExampleQR = false;
+        }
 
         if (!data) {
             this.clearCanvas();
             this.updateStats(0, 1, 'L');
-            // 빈 상태 안내 표시
+            // Show the empty-state message.
             this.showEmptyState();
             return;
         }
 
-        // 빈 상태 안내 숨기기
+        // Hide the empty-state message.
+
         this.hideEmptyState();
 
+        if (!window.QRCode || !window.QRCode.CorrectLevel) {
+            this.clearCanvas();
+            this.updateStats(0, 'auto', 'M');
+            this.showEmptyState('QR engine is loading. Please try again in a moment.');
+            return;
+        }
+
+        const generationId = ++this.generationSeq;
+        const qrHost = document.createElement('div');
+        qrHost.style.position = 'fixed';
+        qrHost.style.left = '-9999px';
+        qrHost.style.top = '0';
+        qrHost.setAttribute('aria-hidden', 'true');
+        document.body.appendChild(qrHost);
+
         try {
-            if(!this.isExampleQR && typeof gtag!=='undefined') gtag('event','generate_qr');
-            const qrCode = this.createQRCode(data);
-            this.drawQRCode(qrCode, data);
-            this.addToHistory(data);
+            new window.QRCode(qrHost, {
+                text: data,
+                width: this.size,
+                height: this.size,
+                colorDark: this.fgColor,
+                colorLight: this.bgColor,
+                correctLevel: window.QRCode.CorrectLevel.M
+            });
+
+            const rendered = qrHost.querySelector('canvas, img');
+            if (!rendered) {
+                throw new Error('QR renderer returned no drawable output');
+            }
+
+            const finalize = () => {
+                if (generationId !== this.generationSeq) {
+                    qrHost.remove();
+                    return;
+                }
+                this.canvas.width = this.size;
+                this.canvas.height = this.size;
+                this.ctx.clearRect(0, 0, this.size, this.size);
+                this.ctx.drawImage(rendered, 0, 0, this.size, this.size);
+                qrHost.remove();
+
+                this.updateStats(data.length, 'auto', 'M');
+                if (!isExample) {
+                    this.scheduleGenerateEvent(data);
+                }
+                this.addToHistory(data);
+            };
+
+            if (rendered.tagName === 'IMG' && !rendered.complete) {
+                rendered.onload = finalize;
+                rendered.onerror = () => {
+                    qrHost.remove();
+                    if (generationId !== this.generationSeq) return;
+                    console.error('QR generation error: QR image failed to load');
+                    this.clearCanvas();
+                    this.showEmptyState('Could not generate this QR code. Please shorten the input and try again.');
+                };
+            } else {
+                finalize();
+            }
         } catch (error) {
+            qrHost.remove();
             console.error('QR generation error:', error);
             this.clearCanvas();
+            this.showEmptyState('Could not generate this QR code. Please shorten the input and try again.');
         }
-    }
-
-    createQRCode(data) {
-        // Simplified QR Code generation using basic encoding
-        // For production, consider using a library like qrcode.js
-
-        const encoded = this.encodeData(data);
-        const requiredModules = Math.ceil(Math.sqrt(encoded.length * 8));
-        const version = Math.max(1, Math.ceil((requiredModules - 17) / 4));
-        const moduleCount = version * 4 + 17;
-
-        return {
-            version: version,
-            moduleCount: moduleCount,
-            data: encoded,
-            modules: this.generateModules(moduleCount, encoded)
-        };
-    }
-
-    encodeData(data) {
-        // Convert string to byte array
-        const encoded = new Uint8Array(data.length);
-        for (let i = 0; i < data.length; i++) {
-            encoded[i] = data.charCodeAt(i);
-        }
-        return encoded;
-    }
-
-    generateModules(size, data) {
-        // Create a basic QR-like pattern
-        const modules = Array(size).fill().map(() => Array(size).fill(false));
-
-        // Add finder patterns (3 corners)
-        this.addFinderPattern(modules, 0, 0);
-        this.addFinderPattern(modules, size - 7, 0);
-        this.addFinderPattern(modules, 0, size - 7);
-
-        // Add timing patterns
-        for (let i = 8; i < size - 8; i++) {
-            modules[6][i] = (i % 2 === 0);
-            modules[i][6] = (i % 2 === 0);
-        }
-
-        // Add data
-        let dataIndex = 0;
-        for (let y = 0; y < size; y++) {
-            for (let x = 0; x < size; x++) {
-                // Skip areas with patterns
-                if (this.isPatternArea(x, y, size)) continue;
-                if (modules[y][x] !== false && modules[y][x] !== true) {
-                    const byteIndex = Math.floor(dataIndex / 8);
-                    const bitIndex = 7 - (dataIndex % 8);
-                    if (byteIndex < data.length) {
-                        modules[y][x] = ((data[byteIndex] >> bitIndex) & 1) === 1;
-                    }
-                    dataIndex++;
-                }
-            }
-        }
-
-        return modules;
-    }
-
-    addFinderPattern(modules, startX, startY) {
-        // 7x7 finder pattern
-        const pattern = [
-            [1, 1, 1, 1, 1, 1, 1],
-            [1, 0, 0, 0, 0, 0, 1],
-            [1, 0, 1, 1, 1, 0, 1],
-            [1, 0, 1, 1, 1, 0, 1],
-            [1, 0, 1, 1, 1, 0, 1],
-            [1, 0, 0, 0, 0, 0, 1],
-            [1, 1, 1, 1, 1, 1, 1]
-        ];
-
-        for (let y = 0; y < 7; y++) {
-            for (let x = 0; x < 7; x++) {
-                if (startY + y < modules.length && startX + x < modules[0].length) {
-                    modules[startY + y][startX + x] = pattern[y][x] === 1;
-                }
-            }
-        }
-
-        // White border around finder pattern
-        for (let y = -1; y <= 7; y++) {
-            for (let x = -1; x <= 7; x++) {
-                if (y === -1 || y === 7 || x === -1 || x === 7) {
-                    if (startY + y >= 0 && startY + y < modules.length &&
-                        startX + x >= 0 && startX + x < modules[0].length) {
-                        modules[startY + y][startX + x] = false;
-                    }
-                }
-            }
-        }
-    }
-
-    isPatternArea(x, y, size) {
-        // Top-left finder pattern and timing
-        if (x <= 8 && y <= 8) return true;
-        // Top-right finder pattern
-        if (x >= size - 8 && y <= 8) return true;
-        // Bottom-left finder pattern
-        if (x <= 8 && y >= size - 8) return true;
-        // Timing patterns
-        if (x === 6 || y === 6) return true;
-        return false;
-    }
-
-    drawQRCode(qrCode, data) {
-        const moduleSize = this.size / qrCode.moduleCount;
-        const modules = qrCode.modules;
-
-        this.canvas.width = this.size;
-        this.canvas.height = this.size;
-
-        // Fill background
-        this.ctx.fillStyle = this.bgColor;
-        this.ctx.fillRect(0, 0, this.size, this.size);
-
-        // Draw modules
-        this.ctx.fillStyle = this.fgColor;
-        for (let y = 0; y < modules.length; y++) {
-            for (let x = 0; x < modules[y].length; x++) {
-                if (modules[y][x]) {
-                    this.ctx.fillRect(
-                        x * moduleSize,
-                        y * moduleSize,
-                        moduleSize,
-                        moduleSize
-                    );
-                }
-            }
-        }
-
-        this.updateStats(data.length, qrCode.version, 'L');
     }
 
     clearCanvas() {
@@ -397,8 +352,8 @@ class QRCodeGenerator {
 
     updateStats(dataLength, version, errorLevel) {
         this.dataSize.textContent = `${dataLength} bytes`;
-        this.qrVersion.textContent = `v${version}`;
-        this.errorCorrection.textContent = `${errorLevel} (7%)`;
+        this.qrVersion.textContent = version === 'auto' ? 'auto' : `v${version}`;
+        this.errorCorrection.textContent = errorLevel === 'M' ? 'M (15%)' : `${errorLevel} (7%)`;
     }
 
     addToHistory(data) {
@@ -463,7 +418,7 @@ class QRCodeGenerator {
             const empty = document.createElement('div');
             empty.className = 'history-empty';
             empty.setAttribute('data-i18n', 'history.empty');
-            empty.textContent = window.i18n ? window.i18n.t('history.empty') : '생성 내역이 없습니다';
+            empty.textContent = window.i18n ? window.i18n.t('history.empty') : 'No generated codes yet';
             this.historyList.appendChild(empty);
             return;
         }
@@ -509,12 +464,17 @@ class QRCodeGenerator {
     }
 
     downloadQR() {
-        if(typeof gtag!=='undefined') gtag('event','download_qr');
         const data = this.getInputData();
         if (!data) {
-            alert(window.i18n ? window.i18n.t('error.noData') : '데이터를 입력해주세요');
+            alert(window.i18n ? window.i18n.t('error.noData') : 'Please enter data first.');
             return;
         }
+
+        this.trackEvent('download_qr', {
+            input_type: this.currentType,
+            data_size: data.length,
+            qr_size: this.size
+        });
 
         const link = document.createElement('a');
         link.href = this.canvas.toDataURL('image/png');
@@ -545,18 +505,20 @@ class QRCodeGenerator {
         this.sizeDisplay.textContent = '250px';
 
         this.selectType('url');
-        // 초기화 후 예시 QR 코드 다시 생성
+        // Restore the starter QR after reset.
         this.urlInput.value = 'https://dopabrain.com';
         this.isExampleQR = true;
         this.generateQR();
     }
 
-    showEmptyState() {
+    showEmptyState(message) {
         const emptyState = document.getElementById('empty-state-message');
         if (emptyState) {
             emptyState.style.display = 'block';
-            // i18n이 있으면 번역 업데이트
-            if (window.i18n && window.i18n.t) {
+            // Prefer explicit messages, otherwise use translated copy.
+            if (message) {
+                emptyState.textContent = message;
+            } else if (window.i18n && window.i18n.t) {
                 emptyState.textContent = window.i18n.t('preview.emptyState');
             }
         }
@@ -582,13 +544,13 @@ const themeToggle = document.getElementById('theme-toggle');
 if (themeToggle) {
     const savedTheme = localStorage.getItem('theme') || 'dark';
     document.documentElement.setAttribute('data-theme', savedTheme);
-    themeToggle.textContent = savedTheme === 'light' ? '🌙' : '☀️';
+    themeToggle.textContent = savedTheme === 'light' ? 'Dark' : 'Light';
     themeToggle.addEventListener('click', () => {
         const current = document.documentElement.getAttribute('data-theme');
         const next = current === 'light' ? 'dark' : 'light';
         document.documentElement.setAttribute('data-theme', next);
         localStorage.setItem('theme', next);
-        themeToggle.textContent = next === 'light' ? '🌙' : '☀️';
+        themeToggle.textContent = next === 'light' ? 'Dark' : 'Light';
     });
 }
 

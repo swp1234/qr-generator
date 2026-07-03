@@ -1,27 +1,28 @@
 // Service Worker for QR Code Generator
 
-const CACHE_NAME = 'qr-generator-v1';
+const CACHE_NAME = 'qr-generator-v2';
 const ASSETS_TO_CACHE = [
-    '/',
-    '/index.html',
-    '/css/style.css',
-    '/js/app.js',
-    '/js/i18n.js',
-    '/js/locales/ko.json',
-    '/js/locales/en.json',
-    '/js/locales/zh.json',
-    '/js/locales/hi.json',
-    '/js/locales/ru.json',
-    '/js/locales/ja.json',
-    '/js/locales/es.json',
-    '/js/locales/pt.json',
-    '/js/locales/id.json',
-    '/js/locales/tr.json',
-    '/js/locales/de.json',
-    '/js/locales/fr.json',
-    '/manifest.json',
-    '/icon-192.svg',
-    '/icon-512.svg'
+    './',
+    './index.html',
+    './css/style.css',
+    './js/app.js',
+    './js/i18n.js',
+    './js/vendor/qrcode.min.js',
+    './js/locales/ko.json',
+    './js/locales/en.json',
+    './js/locales/zh.json',
+    './js/locales/hi.json',
+    './js/locales/ru.json',
+    './js/locales/ja.json',
+    './js/locales/es.json',
+    './js/locales/pt.json',
+    './js/locales/id.json',
+    './js/locales/tr.json',
+    './js/locales/de.json',
+    './js/locales/fr.json',
+    './manifest.json',
+    './icon-192.svg',
+    './icon-512.svg'
 ];
 
 // Install event
