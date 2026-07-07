@@ -9,6 +9,14 @@ class I18n {
     }
 
     detectLanguage() {
+        try {
+            const params = new URLSearchParams(window.location.search || '');
+            const urlLang = params.get('lang');
+            if (urlLang && this.supportedLanguages.includes(urlLang)) {
+                return urlLang;
+            }
+        } catch (error) {}
+
         // Try localStorage first
         const saved = localStorage.getItem('language');
         if (saved && this.supportedLanguages.includes(saved)) {
