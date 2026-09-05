@@ -9,10 +9,11 @@ class QRCodeGenerator {
         this.history = [];
         this.maxHistorySize = 5;
         this.isExampleQR = false;
-        this._engagementFired = false;
+        this._startTracked = false;
+        this._generateTracked = false;
+        this._downloadTracked = false;
         this.generationSeq = 0;
         this.generateTrackTimer = null;
-        this.lastTrackedGenerateKey = '';
 
         this.initElements();
         this.initEventListeners();
@@ -84,15 +85,16 @@ class QRCodeGenerator {
             }
             this.generateQR();
         });
-        this.textInput.addEventListener('input', () => this.generateQR());
-        this.wifiSsid.addEventListener('input', () => this.generateQR());
-        this.wifiPassword.addEventListener('input', () => this.generateQR());
-        this.wifiSecurity.addEventListener('change', () => this.generateQR());
-        this.contactName.addEventListener('input', () => this.generateQR());
-        this.contactPhone.addEventListener('input', () => this.generateQR());
-        this.contactEmail.addEventListener('input', () => this.generateQR());
-        this.emailInput.addEventListener('input', () => this.generateQR());
-        this.phoneInput.addEventListener('input', () => this.generateQR());
+        const generateFromInput = () => { this._fireEngagement(); this.generateQR(); };
+        this.textInput.addEventListener('input', generateFromInput);
+        this.wifiSsid.addEventListener('input', generateFromInput);
+        this.wifiPassword.addEventListener('input', generateFromInput);
+        this.wifiSecurity.addEventListener('change', generateFromInput);
+        this.contactName.addEventListener('input', generateFromInput);
+        this.contactPhone.addEventListener('input', generateFromInput);
+        this.contactEmail.addEventListener('input', generateFromInput);
+        this.emailInput.addEventListener('input', generateFromInput);
+        this.phoneInput.addEventListener('input', generateFromInput);
 
         // Color change listeners
         this.fgColorPicker.addEventListener('change', () => this.updateColors());
@@ -141,38 +143,28 @@ class QRCodeGenerator {
         }
     }
 
-    /**
-     * Fire GA4 engagement event on first interaction to reduce bounce rate
-     */
     _fireEngagement() {
-        if (this._engagementFired) return;
-        this._engagementFired = true;
-        this.trackEvent('engagement', { event_label: 'first_interaction' });
+        if (this._startTracked) return;
+        this._startTracked = true;
+        this.trackEvent('qr_generator_start');
     }
 
-    trackEvent(name, params) {
+    trackEvent(name) {
         if (typeof gtag !== 'function') return;
-        gtag('event', name, Object.assign({
-            event_category: 'qr_generator',
+        gtag('event', name, {
             tool_id: 'qr-generator',
             page_path: '/qr-generator/',
-            page_location: window.location.href,
+            release: '2026-09-05',
             transport_type: 'beacon'
-        }, params || {}));
+        });
     }
 
-    scheduleGenerateEvent(data) {
-        const key = `${this.currentType}:${data}:${this.size}:${this.fgColor}:${this.bgColor}`;
+    scheduleGenerateEvent() {
         window.clearTimeout(this.generateTrackTimer);
         this.generateTrackTimer = window.setTimeout(() => {
-            if (key === this.lastTrackedGenerateKey) return;
-            this.lastTrackedGenerateKey = key;
-            this.trackEvent('generate_qr', {
-                input_type: this.currentType,
-                data_size: data.length,
-                qr_size: this.size,
-                error_correction: 'M'
-            });
+            if (this._generateTracked) return;
+            this._generateTracked = true;
+            this.trackEvent('qr_generator_generate');
         }, 800);
     }
 
@@ -306,7 +298,7 @@ class QRCodeGenerator {
 
                 this.updateStats(data.length, 'auto', 'M');
                 if (!isExample) {
-                    this.scheduleGenerateEvent(data);
+                    this.scheduleGenerateEvent();
                 }
                 this.addToHistory(data);
             };
@@ -374,7 +366,6 @@ class QRCodeGenerator {
             this.history = this.history.slice(0, this.maxHistorySize);
         }
 
-        this.saveHistory();
         this.renderHistory();
     }
 
@@ -386,28 +377,7 @@ class QRCodeGenerator {
         }
     }
 
-    saveHistory() {
-        try {
-            const simplified = this.history.map(item => ({
-                data: item.data,
-                type: item.type,
-                timestamp: item.timestamp
-            }));
-            localStorage.setItem('qr-history', JSON.stringify(simplified));
-        } catch (e) {
-            console.warn('Failed to save history:', e);
-        }
-    }
-
     loadHistory() {
-        try {
-            const saved = localStorage.getItem('qr-history');
-            if (saved) {
-                this.history = JSON.parse(saved);
-            }
-        } catch (e) {
-            console.warn('Failed to load history:', e);
-        }
         this.renderHistory();
     }
 
@@ -470,16 +440,14 @@ class QRCodeGenerator {
             return;
         }
 
-        this.trackEvent('download_qr', {
-            input_type: this.currentType,
-            data_size: data.length,
-            qr_size: this.size
-        });
-
         const link = document.createElement('a');
         link.href = this.canvas.toDataURL('image/png');
         link.download = `qr-code-${Date.now()}.png`;
         link.click();
+        if (!this._downloadTracked) {
+            this._downloadTracked = true;
+            this.trackEvent('qr_generator_download');
+        }
     }
 
     resetForm() {

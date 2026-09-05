@@ -1,6 +1,6 @@
 // Service Worker for QR Code Generator
 
-const CACHE_NAME = 'qr-generator-v2';
+const CACHE_NAME = 'qr-generator-v3';
 const ASSETS_TO_CACHE = [
     './',
     './index.html',
@@ -45,7 +45,7 @@ self.addEventListener('activate', event => {
         caches.keys().then(cacheNames => {
             return Promise.all(
                 cacheNames.map(cacheName => {
-                    if (cacheName !== CACHE_NAME) {
+                    if (cacheName.startsWith('qr-generator') && cacheName !== CACHE_NAME) {
                         return caches.delete(cacheName);
                     }
                 })
@@ -112,18 +112,6 @@ self.addEventListener('fetch', event => {
             })
     );
 });
-
-// Background sync for offline queue (future enhancement)
-self.addEventListener('sync', event => {
-    if (event.tag === 'sync-qr-queue') {
-        event.waitUntil(syncQRQueue());
-    }
-});
-
-async function syncQRQueue() {
-    // Implement QR generation queue sync if needed
-    return Promise.resolve();
-}
 
 // Message handler
 self.addEventListener('message', event => {

@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3600813755953882" crossorigin="anonymous"></script>
     <meta name="robots" content="max-image-preview:large">
     <meta name="theme-color" content="#1abc9c">
     <meta name="description" content="Generate QR codes for URLs, text, WiFi, contacts and more. Customize colors, adjust size, and download as PNG instantly. Play free!">
-    <meta name="dateModified" content="2026-07-07">
+    <meta name="dateModified" content="2026-09-05">
     <meta name="keywords" content="QR 코드 생성기, QR코드, URL QR, WiFi QR, 연락처 QR, QR 색상 커스터마이징">
     <title>QR Code Generator - Free URL, Text, WiFi QR | DopaBrain</title>
     <link rel="canonical" href="https://dopabrain.com/qr-generator/">
@@ -87,13 +86,6 @@
         "priceCurrency": "USD",
         "availability": "https://schema.org/InStock"
       },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.7",
-        "ratingCount": "1050",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
       "featureList": "QR Code Generation, Multiple Input Types, Color Customization, Size Adjustment, PNG Download, History Save, Multilingual Support"
     }
     </script>
@@ -126,9 +118,8 @@
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J8GSWM40TV"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-J8GSWM40TV',{page_path:location.pathname||'/qr-generator/',page_location:location.href});</script>
-<script>setTimeout(function(){if(typeof gtag!=='undefined')gtag('event','page_engage',{event_category:'qr_generator',engagement_time_msec:5000})},5000);</script>
 </head>
-<body>
+<body data-ad-serving="suspended-invalid-traffic-2026-09-03" data-release-contract="qr-generator-trust-2026-09-05">
     <a href="#main-content" class="skip-link" data-i18n="accessibility.skipToMain">Skip to main content</a>
     <div class="app-loader" id="app-loader">
         <div class="loader-content">
@@ -167,17 +158,9 @@
             <div class="header-content">
                 <h1 class="app-title" data-i18n="app.title">QR 코드 생성기</h1>
                 <p class="app-subtitle" data-i18n="app.subtitle">URL, 텍스트, WiFi, 연락처를 QR 코드로 변환</p>
-                <div class="social-proof" style="text-align:center;margin:4px 0 12px;font-size:13px;opacity:0.7;">
-                    📱 <span data-i18n="header.users">오늘 <strong>3,456개</strong>의 QR 코드가 생성되었습니다</span>
-                </div>
+                <p style="text-align:center;margin:4px 0 12px;font-size:13px;opacity:0.75;">Generation runs in this browser. Inputs stay in this tab and are not sent in analytics.</p>
             </div>
         </header>
-
-        <!-- Top Ad Banner -->
-        <div class="ad-banner ad-top">
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3600813755953882" data-ad-slot="auto" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
 
         <!-- Main Content -->
         <main class="main-content" id="main-content">
@@ -319,12 +302,6 @@
             </div>
         </main>
 
-        <!-- Bottom Ad Banner -->
-        <div class="ad-banner ad-bottom">
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3600813755953882" data-ad-slot="auto" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
-
         <!-- Footer -->
         <footer class="footer">
             <p class="footer-text" data-i18n="footer.text">DopaBrain © 2026. 모든 권리 보유.</p>
@@ -353,23 +330,31 @@
     </div>
 
     <script>
-        function shareApp() {
-            const url = window.location.href;
+        let shareTracked = false;
+        function trackShare(method) {
+            if (shareTracked || typeof gtag !== 'function') return;
+            shareTracked = true;
+            gtag('event', 'qr_generator_share', { method, tool_id: 'qr-generator', page_path: '/qr-generator/' });
+        }
+        async function shareApp() {
+            const url = 'https://dopabrain.com/qr-generator/';
             const title = document.title;
-            if (typeof gtag === 'function') gtag('event', 'share', { method: navigator.share ? 'native' : 'clipboard', app_name: 'qr-generator' });
-            if (navigator.share) {
-                navigator.share({ title, url }).catch(() => {});
-            } else {
-                navigator.clipboard.writeText(url).then(() => {
+            const method = navigator.share ? 'native' : 'clipboard';
+            try {
+                if (navigator.share) await navigator.share({ title, url });
+                else {
+                    await navigator.clipboard.writeText(url);
                     const btn = document.querySelector('#share-float button');
                     if (btn) { btn.textContent = '✅'; setTimeout(() => btn.textContent = '🔗', 1500); }
-                }).catch(() => { prompt('Copy:', url); });
-            }
+                }
+                trackShare(method);
+            } catch (_) {}
         }
         function shareTwitter() {
-            const url = encodeURIComponent(window.location.href);
+            const url = encodeURIComponent('https://dopabrain.com/qr-generator/');
             const text = encodeURIComponent(document.title + ' - DopaBrain');
-            window.open('https://twitter.com/intent/tweet?url=' + url + '&text=' + text, '_blank');
+            const shareWindow = window.open('https://twitter.com/intent/tweet?url=' + url + '&text=' + text, '_blank', 'noopener,noreferrer');
+            if (shareWindow) trackShare('twitter');
         }
     </script>
 

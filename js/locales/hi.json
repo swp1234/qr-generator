@@ -4,9 +4,6 @@
     "subtitle": "URL, पाठ, WiFi और संपर्क को QR कोड में परिवर्तित करें",
     "loading": "लोड हो रहा है..."
   },
-  "header": {
-    "users": "आज <strong>3,456</strong> QR कोड जेनरेट किए गए"
-  },
   "preview": {
     "emptyState": "QR कोड तुरंत जेनरेट करने के लिए URL दर्ज करें"
   },
